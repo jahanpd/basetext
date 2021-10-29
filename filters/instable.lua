@@ -1,17 +1,46 @@
-function insertTable (el)
-    iter = io.popen([[ls ./tables]]):lines()
-    for dir in iter do
-        if string.find(dir, "md") then
-            raw = dir:gsub(".md", "")
-            t = "markdown"
+function separate(filename)
+    local main = {}
+    local tag = "no tag"
+    for line in io.lines(filename) do
+        if string.find(line, "%%*%%") then
+            tag = line:gsub("%%","")
         else
-            raw = dir:gsub(".html", "")
-            t = "html"
+            table.insert(main, line.."\n")
         end
-        if raw == el.content[1].text:gsub("%%","") then
-            tableObj = io.open("./tables/" .. dir)
-            tableStr = tableObj:read(("*all"))
-            return pandoc.read(tableStr, t).blocks
+    end
+    return table.concat(main), tag
+end
+
+
+function insertTable (el)
+    local iter = io.popen([[ls ./tables]]):lines()
+    if el.content[1].text then
+        for dir in iter do
+            local raw
+            local t
+            if string.find(dir, "md") then
+                raw = dir:gsub(".md", "")
+                t = "markdown"
+                if raw == el.content[1].text:gsub("%%","") then
+                    local tableObj = io.open("./tables/" .. dir)
+                    local tableStr = tableObj:read(("*all"))
+                    return pandoc.read(tableStr, t).blocks
+                end
+            else
+                raw = dir:gsub(".html", "")
+                t = "html"
+                if raw == el.content[1].text:gsub("%%","") then
+                    main, tag = separate("./tables/" .. dir)
+                    local tableObj = pandoc.read(main, t).blocks
+                    return pandoc.walk_block(tableObj[2], {
+                        Str = function(el)
+                            local content = nil
+                            if el.c == "caption" then content=pandoc.Str(tag) end
+                            return content
+                            end 
+                    })
+                end
+            end
         end
     end
 end

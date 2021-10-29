@@ -10,9 +10,9 @@ fi
 # can add more custom filters to script as needed
 pandoc -s -f markdown -t json $FOLDER/*.md \
 --lua-filter=./filters/instable.lua | \
-pandoc-crossref --pipe | \
 pandoc -s -f json -t latex \
 -o latex/$FOLDER.tex \
+-F pandoc-crossref \
 --metadata-file=metadata.yaml \
 --bibliography=references.bib \
 --biblatex

@@ -1,0 +1,2 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QTable example {#tbl:table1}\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QTable example {#tbl:table1}\\E$"}

@@ -14,12 +14,18 @@ else
     STYLE=$2
 fi
 
+echo $FOLDER
+echo $STYLE
+
 # can add more custom filters to script as needed
 pandoc -s -f markdown -t json $FOLDER/*.md \
 --lua-filter=./filters/instable.lua | \
-pandoc-crossref --pipe | \
 pandoc -s -f json -t html \
 -o html/$FOLDER.html \
---citeproc --bibliography=references.bib \
+--filter=pandoc-crossref \
+--citeproc \
+--bibliography=references.bib \
 --csl=csl/$STYLE \
---metadata-file=metadata.yaml
+--metadata-file=metadata.yaml \
+--toc \
+--number-sections

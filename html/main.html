@@ -177,9 +177,23 @@
 <p class="author">Author One</p>
 <p class="author">Author Two</p>
 </header>
-<h1 id="introduction">Introduction</h1>
-<p>This is my introduction. In the next sentence we will</p>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#another-section"><span class="toc-section-number">2</span> Another Section</a></li>
+<li><a href="#a-section-for-figures"><span class="toc-section-number">3</span> A Section for Figures</a>
+<ul>
+<li><a href="#a-subheading-for-the-sake-of-it"><span class="toc-section-number">3.1</span> A subheading for the sake of it</a></li>
+</ul></li>
+<li><a href="#conclusions"><span class="toc-section-number">4</span> Conclusions</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</nav>
+<h1 data-number="1" id="introduction"><span class="header-section-number">1</span> Introduction</h1>
+<p>This is my introduction. In the next sentence we will reference tbl. 1.</p>
+<div id="tbl:table1">
 <table>
+<caption>Table 1: Table example</caption>
 <thead>
 <tr class="header">
 <th>Syntax</th>
@@ -197,10 +211,12 @@
 </tr>
 </tbody>
 </table>
-<h1 id="another-section">Another Section</h1>
-<p>We progress to another section, where we want to get people to see<span class="citation" data-cites="bhatt_linear_2006"><sup>1</sup></span>. We then reiterate a claim made in the paper<span class="citation" data-cites="bhatt_linear_2006"><sup>1</sup></span>.</p>
+</div>
+<h1 data-number="2" id="another-section"><span class="header-section-number">2</span> Another Section</h1>
+<p>We progress to another section, where we want to get people to see <span class="citation" data-cites="bhatt_linear_2006">(1)</span>. We then reiterate a claim made in the paper <span class="citation" data-cites="bhatt_linear_2006">(1)</span>. Then we reference tbl. 2.</p>
+<div id="tbl:table2">
 <table id="T_a15489dc_36ca_11ec_a9fb_0242ac1c0002">
-<caption>this is a table caption</caption>
+<caption>Table 2: This is a table</caption>
 <thead>
 <tr class="header">
 <th class="blank"></th>
@@ -251,12 +267,26 @@
 </tr>
 </tbody>
 </table>
-<h1 id="conclusions">Conclusions</h1>
+</div>
+<h1 data-number="3" id="a-section-for-figures"><span class="header-section-number">3</span> A Section for Figures</h1>
+<p>This is a great and solid section.</p>
+<h2 data-number="3.1" id="a-subheading-for-the-sake-of-it"><span class="header-section-number">3.1</span> A subheading for the sake of it</h2>
+<p>We continue writing for no reason. We display a set of figues in fig. 1. Note we can subreference fig. 1 (a) and fig. 1 (b).</p>
+<div id="fig:subfigures" class="subfigures">
+<figure>
+<img src="../figures/dogs.jpeg" id="fig:subfigureA" alt="a" /><figcaption aria-hidden="true">a</figcaption>
+</figure>
+<figure>
+<img src="../figures/dogs2.jpeg" id="fig:subfigureB" alt="b" /><figcaption aria-hidden="true">b</figcaption>
+</figure>
+<p>Figure 1: Overarching subfigure caption. a — 2 dogs, b — 3 dogs</p>
+</div>
+<h1 data-number="4" id="conclusions"><span class="header-section-number">4</span> Conclusions</h1>
 <p>We make some concluding remarks.</p>
 <h1 class="unnumbered" id="references">References</h1>
-<div id="refs" class="references csl-bib-body" data-line-spacing="2" role="doc-bibliography">
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-bhatt_linear_2006" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Bhatt, A. G. <a href="https://doi.org/10.1007/BF02719778">Linear filtering with <span>Ornstein</span>-<span>Ulhenbeck</span> process as noise</a>. <em>Sadhana</em> <strong>31</strong>, 141–153 (2006).</div>
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Bhatt AG. Linear filtering with <span>Ornstein</span>-<span>Ulhenbeck</span> process as noise. Sadhana [Internet]. 2006 Apr;31(2):141–53. Available from: <a href="https://doi.org/10.1007/BF02719778">https://doi.org/10.1007/BF02719778</a></div>
 </div>
 </div>
 </body>
