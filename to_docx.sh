@@ -27,4 +27,6 @@ pandoc -s -f json -t docx \
 --csl=csl/$STYLE \
 --metadata-file=metadata.yaml \
 --reference-doc docx/reference.docx \
---lua-filter=./filters/pagebreak.lua
+--lua-filter=./filters/pagebreak.lua \
+--metadata-file=metadata.yaml \
+--number-sections
