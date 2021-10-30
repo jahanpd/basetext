@@ -20,13 +20,5 @@ echo $STYLE
 # can add more custom filters to script as needed
 pandoc -s -f markdown -t json $FOLDER/*.md \
 --lua-filter=./filters/instable.lua \
---lua-filter=./filters/ender.lua | \
-pandoc -s -f json -t html \
--o html/$FOLDER.html \
---filter=pandoc-crossref \
---csl=csl/$STYLE \
---citeproc \
---bibliography=references.bib \
---metadata-file=metadata.yaml \
---toc \
---number-sections
+--lua-filter=./filters/ender.lua \
+-o test.json

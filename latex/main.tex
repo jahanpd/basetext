@@ -175,7 +175,17 @@ idx lvl 1.3 & idx lvl 2.4 & 4 & 4 & 6 & 1 \\
 \hypertarget{a-section-for-figures}{%
 \section{A Section for Figures}\label{a-section-for-figures}}
 
-This is a great and solid section.
+This is a great and solid section. For example, we have these figures
+fig.~\ref{fig:figure1}. Then we can incorporate some math like
+\(\lambda x = Ax\).
+
+\begin{figure}
+\hypertarget{fig:figure1}{%
+\centering
+\includegraphics{./figures/dogs.jpeg}
+\caption{An example figure}\label{fig:figure1}
+}
+\end{figure}
 
 \hypertarget{a-subheading-for-the-sake-of-it}{%
 \subsection{A subheading for the sake of
@@ -188,10 +198,10 @@ fig.~\ref{fig:subfigureA} and fig.~\ref{fig:subfigureB}.
 \begin{pandoccrossrefsubfigures}
 
 \subfloat[2
-dogs]{\includegraphics{../figures/dogs.jpeg}\label{fig:subfigureA}}
+dogs]{\includegraphics{./figures/dogs.jpeg}\label{fig:subfigureA}}
 
 \subfloat[3
-dogs]{\includegraphics{../figures/dogs2.jpeg}\label{fig:subfigureB}}
+dogs]{\includegraphics{./figures/dogs2.jpeg}\label{fig:subfigureB}}
 
 \caption[{Overarching subfigure caption}]{Overarching subfigure caption}
 
@@ -203,10 +213,6 @@ dogs]{\includegraphics{../figures/dogs2.jpeg}\label{fig:subfigureB}}
 \section{Conclusions}\label{conclusions}}
 
 We make some concluding remarks.
-
-\listoffigures
-
-\listoftables
 
 \printbibliography[title=References]
 
