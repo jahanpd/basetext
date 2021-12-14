@@ -22,11 +22,12 @@ pandoc -s -f markdown -t json $FOLDER/*.md \
 --lua-filter=./filters/ender.lua | \
 pandoc -s -f json -t docx \
 -o docx/$FOLDER.docx \
--F pandoc-crossref \
+--filter pandoc-crossref \
 --citeproc --bibliography=references.bib \
 --csl=csl/$STYLE \
 --metadata-file=metadata.yaml \
 --reference-doc docx/reference.docx \
 --lua-filter=./filters/pagebreak.lua \
 --metadata-file=metadata.yaml \
---number-sections
+--number-sections \
+--lua-filter=./filters/moveref.lua

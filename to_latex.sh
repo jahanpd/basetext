@@ -18,6 +18,9 @@ echo $FOLDER
 echo $STYLE
 
 # can add more custom filters to script as needed
+rm -r latex
+mkdir latex
+
 pandoc -s -f markdown -t json $FOLDER/*.md \
 --lua-filter=./filters/instable.lua | \
 pandoc -s -f json -t latex \
@@ -29,6 +32,7 @@ pandoc -s -f json -t latex \
 
 cp references.bib latex/references.bib
 cp csl/$STYLE latex/$STYLE
+cp -r figures ./latex/figures
 
 cd latex
 

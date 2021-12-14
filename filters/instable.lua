@@ -31,14 +31,7 @@ function insertTable (el)
                 t = "html"
                 if raw == el.content[1].text:gsub("%%","") then
                     main, tag = separate("./tables/" .. dir)
-                    local tableObj = pandoc.read(main, t).blocks
-                    return pandoc.walk_block(tableObj[2], {
-                        Str = function(el)
-                            local content = nil
-                            if el.c == "caption" then content=pandoc.Str(tag) end
-                            return content
-                            end 
-                    })
+                    return pandoc.read(main, t).blocks
                 end
             end
         end

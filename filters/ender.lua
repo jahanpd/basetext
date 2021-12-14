@@ -23,7 +23,7 @@ function Pandoc(doc)
             figures_count = figures_count + 1
             -- end
         elseif el.t == "Header" then
-            if el.c[2][1] == "references" then
+            if el.c[1] == "References" then
                 ref = el
             else
                 table.insert(main, el)  
